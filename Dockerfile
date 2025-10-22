@@ -1,11 +1,5 @@
-FROM python:3.10-slim
-
+FROM python:3.11
 WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY app.py .
-COPY winequality-red.csv .
-
-CMD ["python", "app.py"]
+COPY . .
+RUN pip install -r requirements.txt
+CMD python wait_for_db.py && python app.py
