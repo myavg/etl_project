@@ -1,7 +1,7 @@
 import time
 import psycopg2
 
-def wait_for_db():
+def wait_for_db() -> None:
     while True:
         try:
             conn = psycopg2.connect(
